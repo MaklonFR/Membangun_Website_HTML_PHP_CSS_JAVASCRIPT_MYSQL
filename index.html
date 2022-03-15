@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY HOTEL</title>
+
+    <!--BUAT STYLE HALAMAN WEB DENGAN CSS-->
+    <style>
+        /*Style Elemen body*/
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+        /*Style Elemen Div Class Header*/
+        .header {
+            padding: 30px;
+            text-align: center;
+            background-color: rgb(56, 96, 228);
+            color: white;
+            font-size: 28;
+        }
+        /*Style Elemen ul*/
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(43, 41, 41);
+        }
+        /*Style element li*/
+        li {
+            float: left;
+        }
+        /*Style elemen a pada element li*/
+        li a {
+            display: block;
+            color: azure;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        /*Style elemen a:hovel pada elemen li*/
+        li a:hover {
+            background-color: rgb(238, 65, 79);
+        }
+
+        /*Style Footer*/
+        footer {
+            text-align: center;
+            padding: 2px;
+            background-color: dimgrey;
+            color: white;
+        }
+
+        /*Style detail isi*/
+        .detail_isi {
+            margin: 0;
+            padding: 40px;
+            background-color: cadetblue;
+        }
+
+    </style>
+</head>
+<body>
+    <!--BUAT HEADER-->
+    <div class="header">
+        <h2>HOTEL ANAYA LABUAN BAJO</h2>
+        <p>Hotel Terbaik Saat Ini</p>
+    </div>
+
+    <!--BUAT NAVBAR (MENU BAR)-->
+    <div>
+        <ul>
+            <li><a href ="#home" onclick="hal_home();">HOME</a></li>
+            <li><a href="#fk" onclick="hal_fk();">FASILITAS KAMAR</a></li>
+            <li><a href="#fu" onclick="hal_fu();">FASILITAS UMUM</a></li>
+        </ul>
+    </div>
+
+    <!--BAGIAN ISI-->
+    <div id="halaman">
+
+    </div>
+
+    <!--BAGIAN FOOTER-->
+    <footer>
+        <p>Created by: Programming Maklon</p>
+        <a href="mailto:pintarkomputer@gmail.com">pintarkomputer@gmail.com</a>
+    </footer>
+
+ <!--SCRIPT JAVASCRIPT-->
+ <script src="jquery.min.js"></script>
+ <script type="text/javascript">
+     
+     $(document).ready(function() {
+        /*PAGGIL FUNGSI HALAMAN HOME SAAT PERTAMAN RUNNING WEB*/
+        hal_home();
+     });
+
+     /*FUNGSI PANGGIL HALAMAN HOME*/
+     function hal_home() {
+        $.ajax ({
+            url     : "halaman_home.html",
+            method  : "POST",
+            success : function (data)
+            {
+                /*TAMPILKAN DATA PADA ID halaman ELEMEN DIV*/
+                $("#halaman").html(data).refresh;
+            }
+        });
+     }
+
+     /*FUNGSI PANGGIL HALAMAN FASILITAS KAMAR*/
+     function hal_fk() {
+        $.ajax ({
+            url     : "halaman_fasilitas_kamar.html",
+            method  : "POST",
+            success : function (data)
+            {
+                /*TAMPILKAN DATA PADA ID halaman ELEMEN DIV*/
+                $("#halaman").html(data).refresh;
+            }
+        });
+     }
+
+     /*FUNGSI PANGGIL HALAMAN FASILITAS UMUM*/
+     function hal_fu() {
+        $.ajax ({
+            url     : "halaman_fasilitas_umum.html",
+            method  : "POST",
+            success : function (data)
+            {
+                /*TAMPILKAN DATA PADA ID halaman ELEMEN DIV*/
+                $("#halaman").html(data).refresh;
+            }
+        });
+     }
+
+ </script>
+
+</body>
+</html>
